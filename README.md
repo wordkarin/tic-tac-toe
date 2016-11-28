@@ -2,7 +2,26 @@
 This repository holds a couple of versions of Ada's scaffold for Backbone projects.
 
 ## Quick Start
-TODO
+### Development
+In order to get started developing a Backbone application with this scaffold, run the following commands in the directory where the scaffold project files are located:
+
+```bash
+npm install
+```
+This command tells npm to install every dependency listed in the `package.json` file (more details below [in the FAQ](#scaffold-files-and-folders)). This is very similar to the `bundle install` command.
+
+```bash
+npm start
+```
+This command tells npm to run the `start` script that is configured in `package.json`. The scaffold's `package.json` configures the `start` script to run a local development webserver that uses webpack ([see below](#major-components)).
+
+The result is very similar to running `rails server` in your Rails projects. However, one major difference is the output that you see in your terminal:
+
+![webpack dashboard video](http://i.imgur.com/VSqzjKX.gif)
+
+This screen is the view from [webpack dashboard](https://github.com/FormidableLabs/webpack-dashboard), which is a handy tool that lets us see what webpack is doing.
+
+For our purposes we should only need to look at the "Log" portion of the screen, which is where we will see any JavaScript syntax errors that webpack catches. If you move your mouse cursor in that section of the screen and use the scroll wheel (or two finger up/down) you can scroll back through the log and see the full error details.
 
 ## FAQ
 ### What is the Backbone scaffold?
