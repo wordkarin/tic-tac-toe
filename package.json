@@ -5,7 +5,8 @@
   "main": "./bin/app.bundle.js",
   "scripts": {
     "start": "webpack-dashboard -- webpack-dev-server",
-    "test": "jasmine"
+    "test": "jasmine",
+    "repl": "babel-node"
   },
   "author": "Ada Developers Academy <contact@adadevelopersacademy.org>",
   "license": "MIT",
