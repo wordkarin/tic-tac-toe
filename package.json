@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/AdaGold/tic-tac-toe#readme",
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
     "babel-plugin-module-resolver": "^2.3.0",
