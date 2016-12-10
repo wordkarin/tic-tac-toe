@@ -7,30 +7,28 @@ Bring an interactive Tic-Tac-Toe game to life, starting with plain JavaScript pr
  Command Line Application with plain JavaScript.
 
 - In `/src`, create a new file called `game.js`
+- Review the Tic-Tac-Toe API. _(Games will be saved to this API when we get to Backbone)_
 - Plan the design of your Tic-Tac-Toe game
-- Review the Tic-Tac-Toe API your code will eventually have
+- Create tests to cover all functionality
 
-When you are ready to test your game, run this command in terminal: `npm run repl`
-
-In the REPL, you'll need to run the following to access the `src/game.js` file.
+When you are ready to test your game, run this command in terminal: `npm run repl`. Once in the REPL, you'll need to run the following to access the `src/game.js` file.
 
 ```
 $ var Game = require('game').default;
 $ var game = new Game();
 ```
 
-
 ### Wave Two:
-Implement your Tic-Tac-Toe game into a Backbone Application.
-
-Plan the design of the backbone application based off of your game.js solution.  
-  What components will you need?
-  What components will handle what functionality
-Build the initial scaffold of your backbone application
-Incorporate `src/game.js` into a model of a backbone application
-
+Plan architecture
+Build structure
 
 ### Wave Three:
+Implement your Tic-Tac-Toe game into a Backbone Application.
+
+Move `src/game.js` into a model of a backbone application
+
+
+### Wave Four:
 Connect the Backbone application to an API
 
 - Read the documentation for the [Tic-Tac-Toe API](https://github.com/Ada-c6/tic-tac-toe-api)
