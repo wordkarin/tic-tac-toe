@@ -9,9 +9,17 @@ With this project you'll get exposure to the following skills:
 - Reworking existing code for a new environment (plain JS -> Backbone)
 - Backbone API integration
 
-### Basic Setup
+### Baseline Setup
 This project uses the same [Backbone scaffold](https://github.com/AdaGold/backbone-baseline) from the previous Backbone projects. For the first wave you will not need to use Backbone or jQuery at all, however it will be simpler to convert your code to Backbone later on with all of the scaffold in place.
 
+#### Project Forks
+Because the initial implementation of a Tic-Tac-Toe game involves more coding and testing than the later coversion to Backbone you will be working in pairs to complete portion of the project (wave one). One person in the pair should fork the main Ada repository and give collaborator access to their partner.
+
+However for the later waves everyone will be working individually. To make this work, once we switch to wave two and beyond the partner who did _not_ fork from Ada should create their own fork _from their partner's fork_. This process works the same way as forking from Ada -- you open your pair partner's GitHub repo website and click the Fork button.
+
+For the individual waves each person should still submit their Pull Requests to the original Ada repository.
+
+#### Commands
 Because this uses the scaffold you still need to run `npm install` after forking and cloning the repository. You do not need to run `npm start` until waves two and three, because until then your project code will not be a web application.
 
 To run your tests you should use the command `npm test`.
