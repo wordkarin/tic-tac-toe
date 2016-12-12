@@ -37,7 +37,7 @@ var game = new Game();
 NOTE: This only works if your `game.js` file has an `export default` line in it, which it should (it'll be necessary for the Backbone conversion).
 
 ## Requirements
-This project is divided into three waves that will be completed over the next two weeks. The majority of the first week will be dedicated to wave one, with the second and third waves taking place the week after.
+This project is divided into three waves that will be completed over the next two weeks. The majority of the first week will be dedicated to wave one, with the second and third waves taking place the week after. You will work on wave one as a pair, and then complete waves two and three individually.
 
 ### Wave One
 The primary learning goals in this wave are writing unit tests for JavaScript with Jasmine, and program/code design. What we mean by program design is that the specific approach to implementing your Tic-Tac-Toe game's logic will be up to you.
