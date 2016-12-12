@@ -55,7 +55,7 @@ This might seem like an unwarranted distraction from diving right into the code 
     - It will have an empty board of nine cells
     - It will start with the X player having the first move
   - Specify up to two player names
-  - Get the current outcome of the game (X win, O win, tie, or undecided)
+  - Get the current outcome of the game (X win, O win, tie, or incomplete)
   - (OPTIONAL) View a printed version of the current game board for debugging purposes
 - As the 'active' player in a game I CAN:
   - Make a move by specifying an empty board cell
