@@ -9,6 +9,21 @@ With this project you'll get exposure to the following skills:
 - Reworking existing code for a new environment (plain JS -> Backbone)
 - Backbone API integration
 
+### Basic Setup
+This project uses the same [Backbone scaffold](https://github.com/AdaGold/backbone-baseline) from the previous Backbone projects. For the first wave you will not need to use Backbone or jQuery at all, however it will be simpler to convert your code to Backbone later on with all of the scaffold in place.
+
+#### Using the REPL
+If you want to interact with your game in the terminal via a REPL, you'll need to do things in a specific way (due to the scaffold's use of webpack).
+
+To access the REPL you should use the command `npm run repl` in your project directory. Once in the REPL, you'll need to use the following syntax to import your file (this example assumes it was named `src/game.js`):
+
+```javascript
+var Game = require('game').default;
+var game = new Game();
+```
+
+NOTE: This only works if your `game.js` file has an `export default` line in it, which it should (it'll be necessary for the Backbone conversion).
+
 ## Requirements
 This project is divided into three waves that will be completed over the next two weeks. The majority of the first week will be dedicated to wave one, with the second and third waves taking place the week after.
 
@@ -21,23 +36,6 @@ Below we have laid out the requirements for your implementation in the form of u
 The overarching goal with the program design requirement is for you to spend more time at the beginning of the project thinking about what functionality the application needs, how that can be split up into individual functions, and what the inputs and outputs of those functions are.
 
 This might seem like an unwarranted distraction from diving right into the code when you're under such time constraints. But a great deal of time can be saved by avoiding costly refactors if it turns out that your initial approach won't allow you to achieve certain requirements. The more complex the application's logic is, the more difficult and time-consuming it will be to rework that logic after it has been written.
-
-#### Basic Setup
-This project uses the same [Backbone scaffold](https://github.com/AdaGold/backbone-baseline) from the previous Backbone projects. For this first wave you will not be using the Backbone library or jQuery at all, however.
-
-To keep things simple, your code should live in a single JavaScript file (e.g. `src/game.js`). For this wave you should implement the Tic-Tac-Toe game with the "object-oriented" style used for the [Scrabble](https://github.com/AdaGold/js-scrabble) project.
-
-#### REPL access
-If you want to interact with your game in the terminal via a REPL, you'll need to do things in a specific way (due to the scaffold's use of webpack).
-
-To access the REPL you should use the command `npm run repl` in your project directory. Once in the REPL, you'll need to use the following syntax to import your file (this example assumes it was named `src/game.js`):
-
-```javascript
-var Game = require('game').default;
-var game = new Game();
-```
-
-NOTE: This only works if your `game.js` file has an `export default` line in it, which it should (it'll be necessary for the Backbone conversion).
 
 #### User Stories
 - As a user of the Tic-Tac-Toe game I CAN:
@@ -65,6 +63,8 @@ Some things to keep in mind:
 - The user in these stories is really just other JavaScript code -- your Jasmine tests in wave one, and other Backbone code in later waves.
 - Some of these stories likely map 1-to-1 to individual functions, while others describe certain aspects of how a single function should behave.
 - Just because a particular noun (e.g. player) is used in these stories, doesn't mean that it needs to exist as a specific class/concept in the code. The simplest approach to this problem would not involve creating player objects.
+
+To keep things simple, your code should live in a single JavaScript file (e.g. `src/game.js`). For the first wave you should implement the Tic-Tac-Toe game with the "object-oriented" style used for the [Scrabble](https://github.com/AdaGold/js-scrabble) project.
 
 #### Testing Requirements
 You should strive to follow the TDD approach when building this application. Whenever you decide that a new function is necessary to implement one or another feature, you should begin by writing tests for that function.
