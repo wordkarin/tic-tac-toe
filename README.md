@@ -45,7 +45,7 @@ The primary learning goals in this wave are writing unit tests for JavaScript wi
 Below we have laid out the requirements for your implementation in the form of user stories. Because user stories do not specify an implementation or interface (i.e. they do not say you must make a function named `highestScoreFrom`), there's a lot of flexibility for what approach you take.
 
 #### Program Design
-The overarching goal with the program design requirement is for you to spend more time at the beginning of the project thinking about what functionality the application needs, how that can be split up into individual functions, and what the inputs and outputs of those functions are.
+The overarching goal with the program design requirement is for you to spend more time at the beginning of the project thinking about what functionality the application needs, how that can be split up into specific objects and functions, and what the inputs and outputs of those functions are.
 
 This might seem like an unwarranted distraction from diving right into the code when you're under such time constraints. But a great deal of time can be saved by avoiding costly refactors if it turns out that your initial approach won't allow you to achieve certain requirements. The more complex the application's logic is, the more difficult and time-consuming it will be to rework that logic after it has been written.
 
