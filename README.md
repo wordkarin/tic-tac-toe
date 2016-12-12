@@ -12,6 +12,10 @@ With this project you'll get exposure to the following skills:
 ### Basic Setup
 This project uses the same [Backbone scaffold](https://github.com/AdaGold/backbone-baseline) from the previous Backbone projects. For the first wave you will not need to use Backbone or jQuery at all, however it will be simpler to convert your code to Backbone later on with all of the scaffold in place.
 
+Because this uses the scaffold you still need to run `npm install` after forking and cloning the repository. You do not need to run `npm start` until waves two and three, because until then your project code will not be a web application.
+
+To run your tests you should use the command `npm test`.
+
 #### Using the REPL
 If you want to interact with your game in the terminal via a REPL, you'll need to do things in a specific way (due to the scaffold's use of webpack).
 
