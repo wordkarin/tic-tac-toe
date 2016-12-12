@@ -58,7 +58,7 @@ Some things to keep in mind:
 To keep things simple, your code should live in a single JavaScript file (e.g. `src/game.js`). For the first wave you should implement the Tic-Tac-Toe game with the "object-oriented" style used for the [Scrabble](https://github.com/AdaGold/js-scrabble) project.
 
 #### Testing Requirements
-You should strive to follow the TDD approach when building this application. Whenever you decide that a new function is necessary to implement one or another feature, you should begin by writing tests for that function.
+You should strive to follow the BDD approach when building this application. Whenever you decide that a new function is necessary to implement one or another feature, you should begin by writing tests for that function.
 
 - Every function in your application should have at least two tests
 - All tests should pass
