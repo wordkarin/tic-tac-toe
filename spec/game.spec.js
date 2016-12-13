@@ -20,14 +20,5 @@ describe('Game', function(){
     });
   });
 
-  describe('validPlay', function(){
-    var game2 = new Game();
-    it('should return true if position is available', function() {
-      expect(game2.validPlay(1)).toBeTruthy();
-    });
-
-    xit('should return false if position is unavailable', function(){
-      
-    });
-  });
+  
 });

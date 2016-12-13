@@ -12,13 +12,6 @@ var Game = function () {
   this.board = new Board();
 };
 
-Game.prototype.validPlay = function (position) {
-  if(this.board.positions[position] == " ") {
-    return true;
-  } else {
-    return false;
-  }
-};
 
 
 
