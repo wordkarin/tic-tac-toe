@@ -11,11 +11,15 @@ Board.prototype.validPlay = function (position) {
   } else {
     return false;
   }
-};  
+};
 
 Board.prototype.markPlay = function (mark, position) {
-  this.positions[position] = mark;
-  return position;
+  if (this.validPlay(position)) {
+    this.positions[position] = mark;
+    return position;
+  } else {
+    throw new Error('that position is already taken');
+  }
 };
 
 
