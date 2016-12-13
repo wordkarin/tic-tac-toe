@@ -22,7 +22,6 @@ describe('Player', function(){
       expect(function() {
         player.play(-1);
       }).toThrow(new Error('Input must be an integer between 0 and 8'));
-
     });
   });
 });

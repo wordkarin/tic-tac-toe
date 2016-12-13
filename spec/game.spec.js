@@ -19,4 +19,15 @@ describe('Game', function(){
       expect(game1.board instanceof Board).toBeTruthy();
     });
   });
+
+  describe('validPlay', function(){
+    var game2 = new Game();
+    it('should return true if position is available', function() {
+      expect(game2.validPlay(1)).toBeTruthy();
+    });
+
+    xit('should return false if position is unavailable', function(){
+      
+    });
+  });
 });

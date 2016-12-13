@@ -7,9 +7,17 @@ var Game = function () {
   this.player1 = new Player();
   this.player1.mark = "X";
   this.player2 = new Player();
-  this.player2.mark = "O"; 
+  this.player2.mark = "O";
 
   this.board = new Board();
+};
+
+Game.prototype.validPlay = function (position) {
+  if(this.board.positions[position] == " ") {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 
