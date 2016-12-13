@@ -10,9 +10,13 @@ describe('Game', function(){
 
       expect(game1.player1 instanceof Player).toBeTruthy();
 
+      expect(game1.player1.mark).toEqual("X");
+
       expect(game1.player2 instanceof Player).toBeTruthy();
 
-      expect(game1.board instanceof Board).toBeTruthy(); 
+      expect(game1.player2.mark).toEqual("O");
+
+      expect(game1.board instanceof Board).toBeTruthy();
     });
   });
 });
