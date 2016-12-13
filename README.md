@@ -50,12 +50,11 @@ This might seem like an unwarranted distraction from diving right into the code 
 #### User Stories
 For this project you'll need to create your own users stories as a pair, based on your understanding of the Tic-Tac-Toe. For some examples on how user stories work, check out the [project requirements from bEtsy](https://github.com/AdaGold/betsy#user-stories).
 
-Some things to keep in mind:
-- Any constructor functions you create should not take any arguments. This is only to minimize the work needed to later convert your code into a Backbone Model.
+#### Suggestions
 - Some of your stories will likely map 1-to-1 to individual functions, while others might describe certain aspects of how a single function should behave.
-- Because the code you're writing for wave one is the "business logic" of a Tic-Tac-Toe game, the human users of your application will not be interacting with it directly. Instead, the "users" you're writing these stories for will be other code in your project -- Jasmine tests or Backbone Views.
-
-To keep things simple, your code should live in a single JavaScript file (e.g. `src/game.js`). For the first wave you should implement the Tic-Tac-Toe game with the "object-oriented" style used for the [Scrabble](https://github.com/AdaGold/js-scrabble) project.
+- Because the code you're writing for wave one is the "business logic" of a Tic-Tac-Toe game, the human users of your application will not be interacting with it directly. Instead, the "users" you're writing stories for will be other code in your project -- Jasmine tests or Backbone Views.
+- For the first wave you should implement the Tic-Tac-Toe game with the "object-oriented" style used for the [Scrabble](https://github.com/AdaGold/js-scrabble) project.
+- Any constructor functions you create should not take arguments. This is only to minimize the work needed to later convert your code into a Backbone Model.
 
 #### Testing Requirements
 You should strive to follow the BDD approach when building this application. Whenever you decide that a new function is necessary to implement one or another feature, you should begin by writing tests for that function.
