@@ -92,10 +92,8 @@ Game.prototype.takeTurn = function (position) {
 
   //let that exception fly!
   if (this.gameWin()) {
-    console.log("Congrats " + this.winner.mark + " !");
     return this.winner;
   } else if (this.gameOver()) {
-    console.log("No one won. Congratulations");
     return "gameOver";
   } else {
     this.toggleTurn();
