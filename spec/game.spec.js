@@ -23,9 +23,27 @@ describe('Game', function(){
   });
 
   describe('toggleTurn', function() {
-    var  game2 = new Game();
+    var game2 = new Game();
     it('should switch to player2 after player1', function() {
       expect(game2.toggleTurn()).toEqual(game2.player2);
     });
+  });
+
+  describe('gameOver', function(){
+    var game3 = new Game();
+    game3.board.positions = ["O","X","X","X","X","O","O","O","X"];
+    it('should return true if all positions are filled', function(){
+      expect(game3.board.positions.length).toEqual(9);
+
+      expect(game3.gameOver()).toBeTruthy();
+    });
+
+    it('should return false if any positions are empty string', function(){
+      game3.board.positions[1] = " ";
+
+      expect(game3.gameOver()).toBeFalsy(); 
+
+    });
+
   });
 });

@@ -16,6 +16,10 @@ describe('Board', function(){
     var board2 = new Board();
     it('should return true if position is available', function() {
       expect(board2.validPlay(1)).toBeTruthy();
+
+      expect(board2.validPlay(0)).toBeTruthy();
+
+      expect(board2.validPlay(8)).toBeTruthy();
     });
 
     it('should return false if position is unavailable', function(){
@@ -24,6 +28,16 @@ describe('Board', function(){
       board2.markPlay('X', 2);
 
       expect(board2.validPlay(2)).toBeFalsy();
+    });
+
+    it('should throw an error if position is not an integer', function(){
+      expect(function() {
+        board2.validPlay("cat");
+      }).toThrow(new Error('Input must be an integer between 0 and 8'));
+    });
+
+    it('will return false if position is not in the positions array', function(){
+      expect(board2.validPlay(9)).toBeFalsy();
     });
   });
 

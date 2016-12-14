@@ -6,7 +6,9 @@ var Board = function() {
 };
 
 Board.prototype.validPlay = function (position) {
-  if(this.positions[position] == " ") {
+  if (!(Number.isInteger(position))) {
+    throw new Error('Input must be an integer between 0 and 8');
+  } else if (this.positions[position] == " ") {
     return true;
   } else {
     return false;

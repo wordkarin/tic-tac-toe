@@ -24,6 +24,15 @@ Game.prototype.toggleTurn = function () {
   return this.turn;
 };
 
+Game.prototype.gameOver = function () {
+  for (var i = 0; i < this.board.positions.length; i++) {
+    if(this.board.positions[i] == " "){
+      return false;
+    }
+  }
+  return true;
+};
+
 
 
 
