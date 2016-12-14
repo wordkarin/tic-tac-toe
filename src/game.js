@@ -86,6 +86,22 @@ Game.prototype.gameWin = function () {
   }
 };
 
+Game.prototype.takeTurn = function (position) {
+  //this.turn is whose turn it is
+  this.board.markPlay(this.turn.mark, position);
+
+  //let that exception fly!
+  if (this.gameWin()) {
+    console.log("Congrats " + this.winner.mark + " !");
+    return this.winner;
+  } else if (this.gameOver()) {
+    console.log("No one won. Congratulations");
+    return "gameOver";
+  } else {
+    this.toggleTurn();
+  }
+};
+
 
 
 

@@ -152,8 +152,33 @@ describe('Game', function(){
       game6.board.positions = [" ","X","O","O","O","X","O","X"," "];
       expect(game6.gameWin()).toBeTruthy();
     });
-
   });
 
+  describe('takeTurn', function(){
+    var game = new Game();
 
+    it('should throw an error if the position is not valid', function(){
+      game.board.positions[0] = "X";
+      expect(function(){
+        game.takeTurn(0);}).toThrow(new Error('that position is already taken'));
+    });
+
+    it('should return the winner if someone won', function(){
+      game.board.positions = [" "," "," ","O"," ","X","O","O","X"];
+      expect(game.takeTurn(2)).toEqual(game.player1);
+    });
+
+    it('should return gameOver if no one wins', function(){
+      game.board.positions = ["O","X","X","X","X","O","O","O"," "];
+      expect(game.takeTurn(8)).toEqual("gameOver");
+    });
+
+    it('should toggle the turn if nobody won and game is not over', function(){
+      game.board.positions = ["X"," "," ","O"," "," "," "," "," "];
+      expect(game.turn).toEqual(game.player1);
+      game.takeTurn(2);
+      expect(game.board.positions).toEqual(["X"," ","X","O"," "," "," "," "," "]);
+      expect(game.turn).toEqual(game.player2);
+    });
+  });
 });
