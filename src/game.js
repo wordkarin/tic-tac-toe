@@ -13,6 +13,7 @@ var Game = function () {
 
   //starting game with turn being equal to player 1 (X)
   this.turn = this.player1;
+  this.winner = undefined;
 };
 
 Game.prototype.toggleTurn = function () {
@@ -37,6 +38,7 @@ Game.prototype.winHorizontal = function () {
   for(var i = 0; i < this.board.positions.length; i += 3){
     if ((this.board.positions[i] == this.board.positions[i+1]) && (this.board.positions[i] == this.board.positions[i+2])){
       if(this.board.positions[i] != " "){
+        this.winner = this.turn;
         return true;
       }
     }
@@ -48,6 +50,7 @@ Game.prototype.winVertical = function () {
   for(var i = 0; i < 3; i++) {
     if((this.board.positions[i] == this.board.positions[i+3]) && (this.board.positions[i] == this.board.positions[i+6])) {
       if(this.board.positions[i] != " ") {
+        this.winner = this.turn;
         return true;
       }
     }
@@ -63,11 +66,13 @@ Game.prototype.winDiagonal = function () {
 
   // this is the left to right diagonal
   if((this.board.positions[0] == this.board.positions[4]) && (this.board.positions[0] == this.board.positions[8])) {
+    this.winner = this.turn;
     return true;
   }
 
   // this is the right to left diagonal
   if((this.board.positions[2] == this.board.positions[4]) && (this.board.positions[2] == this.board.positions[6])) {
+    this.winner = this.turn;
     return true;
   }
   return false;

@@ -54,16 +54,21 @@ describe('Game', function(){
     it('should return true if there is a horizontal win in the first row', function(){
       game4.board.positions = ["X","X","X","O"," ","O","O","O","X"];
       expect(game4.winHorizontal()).toBeTruthy();
+      expect(game4.winner).toEqual(game4.player1);
     });
 
     it('should return true if there is a horizontal win in the second row', function(){
       game4.board.positions = ["X","X"," ","O","O","O","X"," ","X"];
+      game4.turn = game4.player2;
       expect(game4.winHorizontal()).toBeTruthy();
+      expect(game4.winner).toEqual(game4.player2);
     });
 
     it('should return true if there is a horizontal win in the third row', function(){
       game4.board.positions = ["X","X","O","O"," ","O","X","X","X"];
+      game4.turn = game4.player1;
       expect(game4.winHorizontal()).toBeTruthy();
+      expect(game4.winner).toEqual(game4.player1);
     });
 
     it('should return false if there is no horizontal win yet', function (){
@@ -80,17 +85,23 @@ describe('Game', function(){
 
     it('should return true if there is a vertical win in the first column', function(){
       game5.board.positions = ["X"," ","X","X"," ","O","X","O","X"];
+      game5.turn = game5.player1;
       expect(game5.winVertical()).toBeTruthy();
+      expect(game5.winner).toEqual(game5.player1);
     });
 
     it('should return true if there is a vertical win in the second column', function(){
       game5.board.positions = [" ","X"," ","O","X","O","O","X"," "];
+      game5.turn = game5.player1;
       expect(game5.winVertical()).toBeTruthy();
+      expect(game5.winner).toEqual(game5.player1);
     });
 
     it('should return true if there is a vertical win in the third column', function(){
       game5.board.positions = [" "," ","X","O"," ","X","O","O","X"];
+      game5.turn = game5.player1;
       expect(game5.winVertical()).toBeTruthy();
+      expect(game5.winner).toEqual(game5.player1);
     });
 
     it('should return false if there is no vertical win yet', function (){
@@ -107,12 +118,16 @@ describe('Game', function(){
 
     it('should return true if there is a diagonal win left to right', function(){
       game5.board.positions = ["X"," ","O","X","X","O","X","O","X"];
+      game5.turn = game5.player1;
       expect(game5.winDiagonal()).toBeTruthy();
+      expect(game5.winner).toEqual(game5.player1);
     });
 
     it('should return true if there is a diagonal win right to left', function(){
       game5.board.positions = [" ","X","O","O","O","X","O","X"," "];
+      game5.turn = game5.player2;
       expect(game5.winDiagonal()).toBeTruthy();
+      expect(game5.winner).toEqual(game5.player2);
     });
 
     it('should return false if there is no diagonal win yet', function (){
@@ -136,9 +151,9 @@ describe('Game', function(){
 
       game6.board.positions = [" ","X","O","O","O","X","O","X"," "];
       expect(game6.gameWin()).toBeTruthy();
-
     });
 
-
   });
+
+
 });
