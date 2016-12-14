@@ -98,4 +98,26 @@ describe('Game', function(){
       expect(game5.winVertical()).toBeFalsy();
     });
   });
+
+  describe('winDiagonal', function(){
+    var game5 = new Game();
+    it('should return false if matches are empty strings', function(){
+      expect(game5.winDiagonal()).toBeFalsy();
+    });
+
+    it('should return true if there is a diagonal win left to right', function(){
+      game5.board.positions = ["X"," ","O","X","X","O","X","O","X"];
+      expect(game5.winDiagonal()).toBeTruthy();
+    });
+
+    it('should return true if there is a diagonal win right to left', function(){
+      game5.board.positions = [" ","X","O","O","O","X","O","X"," "];
+      expect(game5.winDiagonal()).toBeTruthy();
+    });
+
+    it('should return false if there is no diagonal win yet', function (){
+      game5.board.positions = ["X"," "," ","O"," "," "," "," "," "];
+      expect(game5.winDiagonal()).toBeFalsy();
+    });
+  });
 });

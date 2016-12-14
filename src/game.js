@@ -55,6 +55,24 @@ Game.prototype.winVertical = function () {
   return false;
 };
 
+Game.prototype.winDiagonal = function () {
+  // both diagonals use index 4, so check to make sure that it's not an empty string, and if it is, return false
+  if(this.board.positions[4] == " "){
+    return false;
+  }
+
+  // this is the left to right diagonal
+  if((this.board.positions[0] == this.board.positions[4]) && (this.board.positions[0] == this.board.positions[8])) {
+    return true;
+  }
+
+  // this is the right to left diagonal
+  if((this.board.positions[2] == this.board.positions[4]) && (this.board.positions[2] == this.board.positions[6])) {
+    return true;
+  }
+  return false; 
+};
+
 
 
 
