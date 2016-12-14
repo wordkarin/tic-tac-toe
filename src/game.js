@@ -70,7 +70,15 @@ Game.prototype.winDiagonal = function () {
   if((this.board.positions[2] == this.board.positions[4]) && (this.board.positions[2] == this.board.positions[6])) {
     return true;
   }
-  return false; 
+  return false;
+};
+
+Game.prototype.gameWin = function () {
+  if(this.winVertical() || this.winHorizontal() || this.winDiagonal()) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 

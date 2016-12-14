@@ -120,4 +120,25 @@ describe('Game', function(){
       expect(game5.winDiagonal()).toBeFalsy();
     });
   });
+
+  describe('gameWin', function(){
+    var game6 = new Game();
+    it('should return false at game start', function(){
+      expect(game6.gameWin()).toBeFalsy();
+    });
+
+    it('should return true if a win in any direction', function(){
+      game6.board.positions = ["X","X","O","O"," ","O","X","X","X"];
+      expect(game6.gameWin()).toBeTruthy();
+
+      game6.board.positions = [" "," ","X","O"," ","X","O","O","X"];
+      expect(game6.gameWin()).toBeTruthy();
+
+      game6.board.positions = [" ","X","O","O","O","X","O","X"," "];
+      expect(game6.gameWin()).toBeTruthy();
+
+    });
+
+
+  });
 });
