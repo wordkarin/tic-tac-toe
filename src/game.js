@@ -10,7 +10,22 @@ var Game = function () {
   this.player2.mark = "O";
 
   this.board = new Board();
+
+  //starting game with turn being equal to player 1 (X)
+  this.turn = this.player1;
 };
+
+Game.prototype.toggleTurn = function () {
+  if (this.turn == this.player1) {
+    this.turn = this.player2;
+  } else if (this.turn == this.player2) {
+    this.turn = this.player1;
+  }
+  return this.turn;
+};
+
+
+
 
 
 

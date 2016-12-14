@@ -17,8 +17,15 @@ describe('Game', function(){
       expect(game1.player2.mark).toEqual("O");
 
       expect(game1.board instanceof Board).toBeTruthy();
+
+      expect(game1.turn).toEqual(game1.player1);
     });
   });
 
-  
+  describe('toggleTurn', function() {
+    var  game2 = new Game();
+    it('should switch to player2 after player1', function() {
+      expect(game2.toggleTurn()).toEqual(game2.player2);
+    });
+  });
 });
