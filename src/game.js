@@ -33,6 +33,17 @@ Game.prototype.gameOver = function () {
   return true;
 };
 
+Game.prototype.winHorizontal = function () {
+  for(var i = 0; i < this.board.positions.length; i += 3){
+    if ((this.board.positions[i] == this.board.positions[i+1]) && (this.board.positions[i] == this.board.positions[i+2])){
+      if(this.board.positions[i] != " "){
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
 
 
 

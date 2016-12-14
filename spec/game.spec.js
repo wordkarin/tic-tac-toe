@@ -41,9 +41,34 @@ describe('Game', function(){
     it('should return false if any positions are empty string', function(){
       game3.board.positions[1] = " ";
 
-      expect(game3.gameOver()).toBeFalsy(); 
+      expect(game3.gameOver()).toBeFalsy();
+    });
+  });
 
+  describe('winHorizontal', function(){
+    var game4 = new Game();
+    it('should return false if matches are empty strings', function(){
+      expect(game4.winHorizontal()).toBeFalsy();
     });
 
+    it('should return true if there is a horizontal win in the first row', function(){
+      game4.board.positions = ["X","X","X","O"," ","O","O","O","X"];
+      expect(game4.winHorizontal()).toBeTruthy();
+    });
+
+    it('should return true if there is a horizontal win in the second row', function(){
+      game4.board.positions = ["X","X"," ","O","O","O","X"," ","X"];
+      expect(game4.winHorizontal()).toBeTruthy();
+    });
+
+    it('should return true if there is a horizontal win in the third row', function(){
+      game4.board.positions = ["X","X","O","O"," ","O","X","X","X"];
+      expect(game4.winHorizontal()).toBeTruthy();
+    });
+
+    it('should return false if there is no horizontal win yet', function (){
+      game4.board.positions = ["X"," "," ","O"," "," "," "," "," "];
+      expect(game4.winHorizontal()).toBeFalsy();
+    });
   });
 });
