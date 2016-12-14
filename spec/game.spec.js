@@ -71,4 +71,31 @@ describe('Game', function(){
       expect(game4.winHorizontal()).toBeFalsy();
     });
   });
+
+  describe('winVertical', function() {
+    var game5 = new Game();
+    it('should return false if matches are empty strings', function(){
+      expect(game5.winVertical()).toBeFalsy();
+    });
+
+    it('should return true if there is a vertical win in the first column', function(){
+      game5.board.positions = ["X"," ","X","X"," ","O","X","O","X"];
+      expect(game5.winVertical()).toBeTruthy();
+    });
+
+    it('should return true if there is a vertical win in the second column', function(){
+      game5.board.positions = [" ","X"," ","O","X","O","O","X"," "];
+      expect(game5.winVertical()).toBeTruthy();
+    });
+
+    it('should return true if there is a vertical win in the third column', function(){
+      game5.board.positions = [" "," ","X","O"," ","X","O","O","X"];
+      expect(game5.winVertical()).toBeTruthy();
+    });
+
+    it('should return false if there is no vertical win yet', function (){
+      game5.board.positions = ["X"," "," ","O"," "," "," "," "," "];
+      expect(game5.winVertical()).toBeFalsy();
+    });
+  });
 });

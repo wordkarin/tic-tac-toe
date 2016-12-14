@@ -44,6 +44,17 @@ Game.prototype.winHorizontal = function () {
   return false;
 };
 
+Game.prototype.winVertical = function () {
+  for(var i = 0; i < 3; i++) {
+    if((this.board.positions[i] == this.board.positions[i+3]) && (this.board.positions[i] == this.board.positions[i+6])) {
+      if(this.board.positions[i] != " ") {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
 
 
 
