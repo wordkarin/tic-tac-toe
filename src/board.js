@@ -14,7 +14,9 @@ Board.prototype.validPlay = function (position) {
 };
 
 Board.prototype.markPlay = function (mark, position) {
-  if (this.validPlay(position)) {
+  if(position === undefined) {
+    throw new Error('Wrong number of arguments');
+  } else if(this.validPlay(position)) {
     this.positions[position] = mark;
     return position;
   } else {

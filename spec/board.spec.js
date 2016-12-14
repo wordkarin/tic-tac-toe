@@ -18,8 +18,12 @@ describe('Board', function(){
       expect(board2.validPlay(1)).toBeTruthy();
     });
 
-    xit('should return false if position is unavailable', function(){
+    it('should return false if position is unavailable', function(){
+      expect(board2.validPlay(2)).toBeTruthy();
 
+      board2.markPlay('X', 2);
+
+      expect(board2.validPlay(2)).toBeFalsy();
     });
   });
 
@@ -29,6 +33,12 @@ describe('Board', function(){
       expect(board2.markPlay('X', 1)).toEqual(1);
 
       expect(board2.positions[1]).toEqual('X');
+    });
+
+    it('should throw an error if 2 arguments are not passed to it', function(){
+      expect(function() {
+        board2.markPlay(2);
+      }).toThrow(new Error('Wrong number of arguments'));
     });
   });
 });
