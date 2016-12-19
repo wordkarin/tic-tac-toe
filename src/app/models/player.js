@@ -1,6 +1,7 @@
-import Board from 'board';
+// import Board from 'board';
+import Backbone from 'backbone'; 
 
-var Player = function() {};
+var Player = Backbone.Model.extend({});
 
 // Player.prototype.play = function (position) {
 //     return position;
