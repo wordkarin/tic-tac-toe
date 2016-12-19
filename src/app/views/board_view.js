@@ -7,16 +7,19 @@ const BoardView = Backbone.View.extend({
   },
 
   render: function() {
+    // reattach dom even listeners to our brand spanking new HTML
+    this.delegateEvents();
 
     return this;
   },
 
 
   events: {
-    'click #0': 'markPosition';
+    'click td': 'markPosition'
   },
 
   markPosition: function(event) {
+    console.log(event.currentTarget.id);
     console.log('markPosition called');
   }
 

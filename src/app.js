@@ -9,6 +9,8 @@ import GameView from 'app/views/game_view';
 
 $(document).ready(function(){
   var boardview = new BoardView({
-    el: 'board'
+    el: '.board'
   });
+
+  boardview.render();
 });
