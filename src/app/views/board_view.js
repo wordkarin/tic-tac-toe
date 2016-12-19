@@ -3,10 +3,15 @@ import Board from 'app/models/board';
 
 const BoardView = Backbone.View.extend({
   initialize: function(options) {
-
+    // var boardArray = [];
   },
 
   render: function() {
+    const boardTable = this.$('#board-display');
+    // boardTable.empty();
+
+    var row1 =
+
     // reattach dom even listeners to our brand spanking new HTML
     this.delegateEvents();
 
@@ -15,7 +20,7 @@ const BoardView = Backbone.View.extend({
 
 
   events: {
-    'click td': 'markPosition'
+    'click li': 'markPosition'
   },
 
   markPosition: function(event) {

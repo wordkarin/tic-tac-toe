@@ -1,11 +1,8 @@
-
-
-table {
-  padding: 20px;
-  width: 50%;
+ul {
+  list-style: none;
 }
 
-td {
+li {
   height: 100px;
   width: 100px;
   background-color: pink;
