@@ -5,7 +5,8 @@ import Board from 'app/models/board';
 const Game = Backbone.Model.extend({
   defaults: {
     player1: "X",
-    player2: "O"
+    player2: "O",
+    isOver: false
   },
 
   initialize: function(options){
@@ -31,6 +32,7 @@ const Game = Backbone.Model.extend({
         return false;
       }
     }
+    this.set("isOver", true); 
     return true;
   },
 
@@ -80,6 +82,7 @@ const Game = Backbone.Model.extend({
 
   gameWin: function () {
     if(this.winVertical() || this.winHorizontal() || this.winDiagonal()) {
+      this.set("isOver", true);
       return true;
     } else {
       return false;

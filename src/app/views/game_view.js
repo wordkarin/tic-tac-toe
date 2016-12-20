@@ -14,6 +14,7 @@ const GameView = Backbone.View.extend({
     });
 
     this.listenTo(board, 'userPlay', this.turnPlay);
+    this.listenTo(this.model, 'change', this.showBanner);
 
     board.render();
   },
@@ -38,6 +39,10 @@ const GameView = Backbone.View.extend({
       // else, print something to the screen saying game is over.
       console.log("You can't keep playing, the game is over!");
     }
+  },
+
+  showBanner: function(){
+    console.log("showBanner!");
   },
 
   restartGame: function(event) {
