@@ -1,4 +1,5 @@
 import Backbone from 'backbone';
+import $ from 'jquery';
 import Game from 'app/models/game';
 import Board from 'app/models/board';
 import BoardView from 'app/views/board_view';
@@ -9,12 +10,13 @@ const GameView = Backbone.View.extend({
     var playBoard = this.model.board;
 
     var board = new BoardView({
-      el: '.board',
+      el: $('.board'),
       model: playBoard
     });
+    this.banner = this.$('.end-of-game');
 
     this.listenTo(board, 'userPlay', this.turnPlay);
-    this.listenTo(this.model, 'change', this.showBanner);
+    this.model.on('change:isOver', this.showBanner, this);
 
     board.render();
   },
@@ -41,8 +43,13 @@ const GameView = Backbone.View.extend({
     }
   },
 
-  showBanner: function(){
+  showBanner: function(options){
     console.log("showBanner!");
+    console.log(options.winner); //this is the winner, should use to populate the html.
+    //set the winner in the html
+    var message = $('#win-banner');
+    message.append(options.winner + " is the winner!");
+    this.banner.show();
   },
 
   restartGame: function(event) {
