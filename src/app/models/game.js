@@ -91,6 +91,7 @@ const Game = Backbone.Model.extend({
     this.board.markPlay(this.turn, position);
 
     //let that exception fly!
+    // toggle turn unless someone has won or game is over.
     if (this.gameWin()) {
       return this.winner;
     } else if (this.gameOver()) {

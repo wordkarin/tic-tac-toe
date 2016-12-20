@@ -12,6 +12,7 @@ const GameView = Backbone.View.extend({
       el: '.board',
       model: playBoard
     });
+
     this.listenTo(board, 'userPlay', this.turnPlay);
 
     board.render();
@@ -29,8 +30,14 @@ const GameView = Backbone.View.extend({
   turnPlay: function(options){
     console.log("turnPlay!");
     console.log(JSON.parse(options.position));
-    // this.model.board.markPlay(this.model.turn, options.position);
-    this.model.takeTurn(JSON.parse(options.position));
+
+    // if no one has won yet or game is not over, call takeTurn.
+    if(!(this.model.gameWin() ||this.model.gameOver())){
+      this.model.takeTurn(JSON.parse(options.position));
+    } else {
+      // else, print something to the screen saying game is over.
+      console.log("You can't keep playing, the game is over!");
+    }
   },
 
   restartGame: function(event) {
