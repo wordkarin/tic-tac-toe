@@ -1,28 +1,26 @@
 import Backbone from 'backbone';
 
-import Player from 'app/models/player';
 import Board from 'app/models/board';
-//may need to import board model
 
 const Game = Backbone.Model.extend({
-  initialize: function(options){
-    this.player1 = new Player();
-    this.player1.mark = "X";
-    this.player2 = new Player();
-    this.player2.mark = "O";
+  defaults: {
+    player1: "X",
+    player2: "O"
+  },
 
+  initialize: function(options){
     this.board = new Board();
 
     //starting game with turn being equal to player 1 (X)
-    this.turn = this.player1;
+    this.turn = this.get("player1");
     this.winner = undefined;
   },
 
   toggleTurn: function () {
-    if (this.turn == this.player1) {
-      this.turn = this.player2;
-    } else if (this.turn == this.player2) {
-      this.turn = this.player1;
+    if (this.turn == this.get("player1")) {
+      this.turn = this.get("player2");
+    } else if (this.turn == this.get("player2")) {
+      this.turn = this.get("player1");
     }
     return this.turn;
   },
@@ -90,7 +88,7 @@ const Game = Backbone.Model.extend({
 
   takeTurn: function (position) {
     //this.turn is whose turn it is
-    this.board.markPlay(this.turn.mark, position);
+    this.board.markPlay(this.turn, position);
 
     //let that exception fly!
     if (this.gameWin()) {

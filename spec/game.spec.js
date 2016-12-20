@@ -1,5 +1,4 @@
 import Game from 'app/models/game';
-import Player from 'app/models/player';
 import Board from 'app/models/board';
 
 describe('Game', function(){
@@ -8,24 +7,20 @@ describe('Game', function(){
       var game1 = new Game();
       expect(game1 instanceof Game).toBeTruthy();
 
-      expect(game1.player1 instanceof Player).toBeTruthy();
+      expect(game1.get("player1")).toEqual("X");
 
-      expect(game1.player1.mark).toEqual("X");
-
-      expect(game1.player2 instanceof Player).toBeTruthy();
-
-      expect(game1.player2.mark).toEqual("O");
+      expect(game1.get("player2")).toEqual("O");
 
       expect(game1.board instanceof Board).toBeTruthy();
 
-      expect(game1.turn).toEqual(game1.player1);
+      expect(game1.turn).toEqual(game1.get("player1"));
     });
   });
 
   describe('toggleTurn', function() {
     var game2 = new Game();
     it('should switch to player2 after player1', function() {
-      expect(game2.toggleTurn()).toEqual(game2.player2);
+      expect(game2.toggleTurn()).toEqual(game2.get("player2"));
     });
   });
 
@@ -54,21 +49,21 @@ describe('Game', function(){
     it('should return true if there is a horizontal win in the first row', function(){
       game4.board.positions = ["X","X","X","O"," ","O","O","O","X"];
       expect(game4.winHorizontal()).toBeTruthy();
-      expect(game4.winner).toEqual(game4.player1);
+      expect(game4.winner).toEqual(game4.get("player1"));
     });
 
     it('should return true if there is a horizontal win in the second row', function(){
       game4.board.positions = ["X","X"," ","O","O","O","X"," ","X"];
-      game4.turn = game4.player2;
+      game4.turn = game4.get("player2");
       expect(game4.winHorizontal()).toBeTruthy();
-      expect(game4.winner).toEqual(game4.player2);
+      expect(game4.winner).toEqual(game4.get("player2"));
     });
 
     it('should return true if there is a horizontal win in the third row', function(){
       game4.board.positions = ["X","X","O","O"," ","O","X","X","X"];
-      game4.turn = game4.player1;
+      game4.turn = game4.get("player1");
       expect(game4.winHorizontal()).toBeTruthy();
-      expect(game4.winner).toEqual(game4.player1);
+      expect(game4.winner).toEqual(game4.get("player1"));
     });
 
     it('should return false if there is no horizontal win yet', function (){
@@ -85,23 +80,23 @@ describe('Game', function(){
 
     it('should return true if there is a vertical win in the first column', function(){
       game5.board.positions = ["X"," ","X","X"," ","O","X","O","X"];
-      game5.turn = game5.player1;
+      game5.turn = game5.get("player1");
       expect(game5.winVertical()).toBeTruthy();
-      expect(game5.winner).toEqual(game5.player1);
+      expect(game5.winner).toEqual(game5.get("player1"));
     });
 
     it('should return true if there is a vertical win in the second column', function(){
       game5.board.positions = [" ","X"," ","O","X","O","O","X"," "];
-      game5.turn = game5.player1;
+      game5.turn = game5.get("player1");
       expect(game5.winVertical()).toBeTruthy();
-      expect(game5.winner).toEqual(game5.player1);
+      expect(game5.winner).toEqual(game5.get("player1"));
     });
 
     it('should return true if there is a vertical win in the third column', function(){
       game5.board.positions = [" "," ","X","O"," ","X","O","O","X"];
-      game5.turn = game5.player1;
+      game5.turn = game5.get("player1");
       expect(game5.winVertical()).toBeTruthy();
-      expect(game5.winner).toEqual(game5.player1);
+      expect(game5.winner).toEqual(game5.get("player1"));
     });
 
     it('should return false if there is no vertical win yet', function (){
@@ -118,16 +113,16 @@ describe('Game', function(){
 
     it('should return true if there is a diagonal win left to right', function(){
       game5.board.positions = ["X"," ","O","X","X","O","X","O","X"];
-      game5.turn = game5.player1;
+      game5.turn = game5.get("player1");
       expect(game5.winDiagonal()).toBeTruthy();
-      expect(game5.winner).toEqual(game5.player1);
+      expect(game5.winner).toEqual(game5.get("player1"));
     });
 
     it('should return true if there is a diagonal win right to left', function(){
       game5.board.positions = [" ","X","O","O","O","X","O","X"," "];
-      game5.turn = game5.player2;
+      game5.turn = game5.get("player2");
       expect(game5.winDiagonal()).toBeTruthy();
-      expect(game5.winner).toEqual(game5.player2);
+      expect(game5.winner).toEqual(game5.get("player2"));
     });
 
     it('should return false if there is no diagonal win yet', function (){
@@ -165,7 +160,7 @@ describe('Game', function(){
 
     it('should return the winner if someone won', function(){
       game.board.positions = [" "," "," ","O"," ","X","O","O","X"];
-      expect(game.takeTurn(2)).toEqual(game.player1);
+      expect(game.takeTurn(2)).toEqual(game.get("player1"));
     });
 
     it('should return gameOver if no one wins', function(){
@@ -175,10 +170,10 @@ describe('Game', function(){
 
     it('should toggle the turn if nobody won and game is not over', function(){
       game.board.positions = ["X"," "," ","O"," "," "," "," "," "];
-      expect(game.turn).toEqual(game.player1);
+      expect(game.turn).toEqual(game.get("player1"));
       game.takeTurn(2);
       expect(game.board.positions).toEqual(["X"," ","X","O"," "," "," "," "," "]);
-      expect(game.turn).toEqual(game.player2);
+      expect(game.turn).toEqual(game.get("player2"));
     });
   });
 });
