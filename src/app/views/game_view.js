@@ -12,6 +12,7 @@ const GameView = Backbone.View.extend({
       el: '.board',
       model: playBoard
     });
+    this.listenTo(board, 'userPlay', this.turnPlay);
 
     board.render();
   },
@@ -25,9 +26,17 @@ const GameView = Backbone.View.extend({
     'click button': 'restartGame'
   },
 
+  turnPlay: function(options){
+    console.log("turnPlay!");
+    console.log(JSON.parse(options.position));
+    // this.model.board.markPlay(this.model.turn, options.position);
+    this.model.takeTurn(JSON.parse(options.position));
+  },
+
   restartGame: function(event) {
+    // this probably needs to happen up a level from here - cannot destroy all the things from within here.
     console.log('restartGame called');
-    this.model.destroy(); 
+    this.model.destroy();
     var game = new Game();
     var newGame = new GameView({
       el: ('#game'),
@@ -36,6 +45,8 @@ const GameView = Backbone.View.extend({
     newGame.render();
 
   }
+
+
 });
 
 export default GameView;

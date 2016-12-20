@@ -31,13 +31,12 @@ const BoardView = Backbone.View.extend({
   },
 
   markPosition: function(event) {
-    // for some reason this is getting called multiple times when we're restarting the game in gameview
-    // event.stopPropagation();
 
     console.log(event.currentTarget.id);
+    this.trigger('userPlay', {model: this.model, position: event.currentTarget.id});
 
     // this should eventually set the positions array equal to whoever's turn it is, not hardcoded to "X";
-    this.positions[event.currentTarget.id] = "X";
+    // this.positions[event.currentTarget.id] = "X";
     console.log('markPosition called');
     this.render();
   }

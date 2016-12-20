@@ -10,7 +10,7 @@ const Board = Backbone.Model.extend({
 
   validPlay: function (position) {
     if (!(Number.isInteger(position))) {
-      throw new Error('Input must be an integer between 0 and 8');
+      throw new Error('Input is' + position + 'must be an integer between 0 and 8');
     } else if (this.positions[position] == " ") {
       return true;
     } else {
