@@ -27,6 +27,7 @@ const GameView = Backbone.View.extend({
 
   restartGame: function(event) {
     console.log('restartGame called');
+    this.model.destroy(); 
     var game = new Game();
     var newGame = new GameView({
       el: ('#game'),
