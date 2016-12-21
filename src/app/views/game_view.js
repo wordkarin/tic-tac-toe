@@ -55,6 +55,7 @@ const GameView = Backbone.View.extend({
   restartGame: function(event) {
     // this probably needs to happen up a level from here - cannot destroy all the things from within here.
     console.log('restartGame called');
+    this.model.board.destroy();
     this.model.destroy();
     var game = new Game();
     var newGame = new GameView({
@@ -62,6 +63,7 @@ const GameView = Backbone.View.extend({
       model: game
     });
     newGame.render();
+    console.log(game.get("isOver"));
 
   }
 
