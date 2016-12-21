@@ -48,7 +48,14 @@ const GameView = Backbone.View.extend({
     console.log(options.winner); //this is the winner, should use to populate the html.
     //set the winner in the html
     var message = $('#win-banner');
-    message.append(options.winner + " is the winner!");
+
+    message.empty();
+
+    if (options.winner !== undefined){
+      message.append(options.winner + " is the winner!");
+    }else {
+      message.append("It's a draw.")
+    }
     this.banner.show();
   },
 
