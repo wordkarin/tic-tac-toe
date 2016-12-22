@@ -51,7 +51,7 @@ const GameView = Backbone.View.extend({
 
     message.empty();
 
-    if (options.attributes.winner !== undefined){
+    if (options.attributes.winner !== null){
       message.append(options.attributes.winner + " is the winner!");
     }else {
       message.append("It's a draw.");
