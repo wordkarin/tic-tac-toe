@@ -6,7 +6,8 @@ const Game = Backbone.Model.extend({
   defaults: {
     player1: "X",
     player2: "O",
-    isOver: false
+    isOver: false,
+    winner: null
   },
 
   initialize: function(options){
@@ -14,8 +15,8 @@ const Game = Backbone.Model.extend({
 
     //starting game with turn being equal to player 1 (X)
     this.turn = this.get("player1");
-    this.winner = undefined;
   },
+
 
   toggleTurn: function () {
     if (this.turn == this.get("player1")) {
@@ -32,7 +33,8 @@ const Game = Backbone.Model.extend({
         return false;
       }
     }
-    this.set("isOver", true); 
+    this.set("isOver", true);
+    this.set('winner', "draw");
     return true;
   },
 
@@ -40,7 +42,7 @@ const Game = Backbone.Model.extend({
     for(var i = 0; i < this.board.positions.length; i += 3){
       if ((this.board.positions[i] == this.board.positions[i+1]) && (this.board.positions[i] == this.board.positions[i+2])){
         if(this.board.positions[i] != " "){
-          this.winner = this.turn;
+          this.set('winner',this.turn);
           return true;
         }
       }
@@ -52,7 +54,7 @@ const Game = Backbone.Model.extend({
     for(var i = 0; i < 3; i++) {
       if((this.board.positions[i] == this.board.positions[i+3]) && (this.board.positions[i] == this.board.positions[i+6])) {
         if(this.board.positions[i] != " ") {
-          this.winner = this.turn;
+          this.set('winner', this.turn);
           return true;
         }
       }
@@ -68,13 +70,13 @@ const Game = Backbone.Model.extend({
 
     // this is the left to right diagonal
     if((this.board.positions[0] == this.board.positions[4]) && (this.board.positions[0] == this.board.positions[8])) {
-      this.winner = this.turn;
+      this.set('winner', this.turn);
       return true;
     }
 
     // this is the right to left diagonal
     if((this.board.positions[2] == this.board.positions[4]) && (this.board.positions[2] == this.board.positions[6])) {
-      this.winner = this.turn;
+      this.set('winner', this.turn);
       return true;
     }
     return false;
@@ -96,12 +98,34 @@ const Game = Backbone.Model.extend({
     //let that exception fly!
     // toggle turn unless someone has won or game is over.
     if (this.gameWin()) {
-      return this.winner;
+      this.saveGame();
+      return this.get('winner');
     } else if (this.gameOver()) {
-      return "gameOver";
+      this.saveGame();
+      return 'gameOver';
     } else {
       this.toggleTurn();
     }
+  },
+
+  toJSON: function() {
+
+    var output = {
+      players: [this.get('player1'), this.get('player2')],
+      outcome: this.get('winner'),
+      board: this.board.positions
+    };
+
+    return output;
+  },
+
+  saveGame: function(){
+    var outcome = this.get('winner');
+    this.set('outcome', outcome);
+    console.log("saveGame got called");
+
+    this.trigger('createGame', this);
+    // this.create(rawGame);
   }
 });
 export default Game;
