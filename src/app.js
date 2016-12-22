@@ -12,9 +12,12 @@ import GameView from 'app/views/game_view';
 $(document).ready(function(){
 
   var games = new Games();
-  var gameList = new GamesView({
+  var gameListView = new GamesView({
     el: $('body'), //this will be something else later.
     model: games
   });
+
+  games.fetch();
+  console.log(games);
 
 });
