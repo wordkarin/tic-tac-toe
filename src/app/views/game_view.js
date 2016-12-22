@@ -27,7 +27,7 @@ const GameView = Backbone.View.extend({
   },
 
   events: {
-    'click button': 'restartGame'
+    // 'click button': 'restartGame'
   },
 
   turnPlay: function(options){
@@ -59,20 +59,20 @@ const GameView = Backbone.View.extend({
     this.banner.show();
   },
 
-  restartGame: function(event) {
-    // this probably needs to happen up a level from here - cannot destroy all the things from within here.
-    console.log('restartGame called');
-    this.model.board.destroy();
-    this.model.destroy();
-    var game = new Game();
-    var newGame = new GameView({
-      el: ('#game'),
-      model: game
-    });
-    newGame.render();
-    console.log(game.get("isOver"));
-
-  }
+  // restartGame: function(event) {
+  //   // this probably needs to happen up a level from here - cannot destroy all the things from within here.
+  //   console.log('restartGame called');
+  //   this.model.board.destroy();
+  //   this.model.destroy();
+  //   var game = new Game();
+  //   var newGame = new GameView({
+  //     el: ('#game'),
+  //     model: game
+  //   });
+  //   newGame.render();
+  //   console.log(game.get("isOver"));
+  //
+  // }
 
 
 });
