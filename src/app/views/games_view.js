@@ -20,6 +20,10 @@ const GamesView = Backbone.View.extend({
     this.listenTo(this.model, 'add', this.addGame);
   },
 
+  events: {
+    'click #show-all-games': 'showGames'
+  },
+
   addGame: function() {
     console.log("add game getting called on the collection");
 
@@ -30,7 +34,11 @@ const GamesView = Backbone.View.extend({
     console.log(options);
 
     this.model.create(options);
-    console.log(this.model); 
+    console.log(this.model);
+  },
+
+  showGames: function(){
+    console.log('show games called');
   }
 
 });

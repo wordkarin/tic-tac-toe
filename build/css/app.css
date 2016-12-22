@@ -1,5 +1,5 @@
 #game {
-  max-width: 600px; 
+  max-width: 600px;
 }
 
 h1 {
@@ -25,4 +25,8 @@ li {
 
 .end-of-game {
   display: none;
+}
+
+button {
+  width: 45%;
 }
