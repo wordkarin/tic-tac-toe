@@ -30,6 +30,7 @@ const GamesView = Backbone.View.extend({
     console.log(options);
 
     this.model.create(options);
+    console.log(this.model); 
   }
 
 });
