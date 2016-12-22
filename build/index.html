@@ -15,29 +15,40 @@
         <h1>Tic Tac Toe with Backbone</h1>
       </header>
 
-      <section class="end-of-game" class="row">
-        <div class="small-6 columns" id="win-banner"></div>
-        <button class="button small-6 columns" type="button" id="play-again" onClick="window.location.reload()">Play Again</button>
+      <section class="end-of-game" class="row small-centered">
+        <div class="small-8 columns">
+          <p id="win-banner"></p>
+        </div>
+        <div class="small-4 columns">
+          <button class="button" type="button" id="play-again" onClick="window.location.reload()">Play Again</button>
+        </div>
       </section>
 
       <section class="board">
         <ul class="row small-up-3 small-centered" id="board-display">
-          <li class="column" id="0"></li>
-          <li class="column" id="1"></li>
-          <li class="column" id="2"></li>
-          <li class="column" id="3"></li>
-          <li class="column" id="4"></li>
-          <li class="column" id="5"></li>
-          <li class="column" id="6"></li>
-          <li class="column" id="7"></li>
-          <li class="column" id="8"></li>
+          <li class="column board-square" id="0"></li>
+          <li class="column board-square" id="1"></li>
+          <li class="column board-square" id="2"></li>
+          <li class="column board-square" id="3"></li>
+          <li class="column board-square" id="4"></li>
+          <li class="column board-square" id="5"></li>
+          <li class="column board-square" id="6"></li>
+          <li class="column board-square" id="7"></li>
+          <li class="column board-square" id="8"></li>
         </ul>
       </section>
 
     </article>
     <article id="game-list">
       <section class="row">
-        <button class="button column  small-centered" type="button" id="show-all-games">Show all games</button>
+        <div class="small-3 small-centered columns">
+          <button class="button" type="button" id="show-all-games">Show games</button></div>
+      </section>
+      <section class="row">
+        <div class="small-10 small-centered columns">
+          <table id="prev-games">
+          </table>
+        </div>
       </section>
     </article>
   </body>

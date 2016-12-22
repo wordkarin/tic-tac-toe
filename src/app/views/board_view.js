@@ -13,7 +13,7 @@ const BoardView = Backbone.View.extend({
 
     for(var i=0; i < this.positions.length; i++) {
       // this should probably be a template
-      var square = "<li class='column' id='" + i + "'>" + this.positions[i] + "</li>";
+      var square = "<li class='column board-square' id='" + i + "'>" + this.positions[i] + "</li>";
       boardList.append(square);
     }
 
@@ -30,7 +30,7 @@ const BoardView = Backbone.View.extend({
     'click li': 'markPosition'
   },
 
-  markPosition: function(event) {    
+  markPosition: function(event) {
     this.trigger('userPlay', {model: this.model, position: event.currentTarget.id});
 
     console.log('markPosition called');

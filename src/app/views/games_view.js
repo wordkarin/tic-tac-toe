@@ -38,8 +38,20 @@ const GamesView = Backbone.View.extend({
   },
 
   showGames: function(){
-    console.log('show games called');
-  }
+    // var button = this.$('#show-all-games');
+
+    var list = this.$('#prev-games');
+
+    for(var i = 0; i < this.model.length; i++){
+      console.log(this.model.models[i].attributes);
+      var game = this.model.models[i].attributes;
+
+      var tabledata  = '<tr><td>' + game.id + '</td><td> Date/Time: ' + game.played_at + '</td><td> Winner: ' + game.outcome + '</td></tr>';
+      list.append(tabledata);
+    }
+
+    this.render();
+  },
 
 });
 
